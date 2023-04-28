@@ -1,1 +1,5 @@
 const express = require('express')
+const connectToMongoDB = require('./db')
+connectToMongoDB()
+const app = express()
+app.listen(3000)
