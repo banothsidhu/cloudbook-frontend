@@ -7,4 +7,4 @@ const connectToMongoDB = () => {
   .catch(error => console.log('Error connecting to MongoDB:', error.message));
 }
 
-module.exports = connectToMongoDB;
+module.exports = connectToMongoDB
