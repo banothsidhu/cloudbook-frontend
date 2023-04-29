@@ -1,6 +1,7 @@
 const express = require('express')
 const connectToMongoDB = require('./db')
 const app = express()
+// hey this 
 const port = 3000
 connectToMongoDB()
 app.use(express.json())
