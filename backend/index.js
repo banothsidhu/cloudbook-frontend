@@ -1,4 +1,5 @@
 const express = require('express')
+console.log("hey Clone is woring")
 const connectToMongoDB = require('./db')
 const app = express()
 const port = 3000
