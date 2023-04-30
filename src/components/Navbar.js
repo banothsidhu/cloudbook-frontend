@@ -1,31 +1,42 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
-export default function Navbar() {
-  const location = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
+import '../App.css';
 
-  const handleToggle = () => setIsOpen(!isOpen);
-  const handleClose = () => setIsOpen(false);
-
+function NavbarComponent() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">Inotebook</Link>
-        <button className="navbar-toggler" type="button" onClick={handleToggle}>
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
-              <Link className="nav-link" to="/" onClick={handleClose}>Home</Link>
-            </li>
-            <li className={`nav-item ${location.pathname === '/link' ? 'active' : ''}`}>
-              <Link className="nav-link" to="/about" onClick={handleClose}>About</Link>
-            </li>
-          </ul>
-        </div>
+    <>
+      <nav className='Navbar'>
+        <Navbar bg="white" expand="lg" fixed="top">
+          <Nav className="m-auto">
+            <NavLink className='nav-link'>
+             Inotebook
+            </NavLink>
+          </Nav>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler" />
+          <Navbar.Collapse id="basic-navbar-nav ">
+            <Nav className="mr-auto">
+              <Nav.Item className="m-auto">
+                <NavLink to="/" className="nav-link">
+                  Home
+                </NavLink>
+              </Nav.Item>
+              <Nav.Item className="m-auto">
+                <NavLink to="/about" className="nav-link">
+                  About
+                </NavLink>
+              </Nav.Item>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </nav>
+      <div style={{ paddingTop: "60px" }}>
+        {/* Add padding equal to the navbar height */}
+        {/* Content of the home component goes here */}
       </div>
-    </nav>
+    </>
   );
 }
+
+export default NavbarComponent;

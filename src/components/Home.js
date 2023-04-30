@@ -1,9 +1,10 @@
 import React from 'react'
 
 export default function Home() {
+ 
   return (
     <div>
-      This home component 
+Hey this is home
     </div>
   )
 }
