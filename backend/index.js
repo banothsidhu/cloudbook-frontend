@@ -2,7 +2,7 @@ const express = require('express')
 const connectToMongoDB = require('./db')
 const app = express()
 // hey this 
-const port = 3000
+const port = 5000
 connectToMongoDB()
 app.use(express.json())
 app.get('/', (req, res) => {
