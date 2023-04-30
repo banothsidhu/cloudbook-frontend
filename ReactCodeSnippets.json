@@ -1,0 +1,128 @@
+{
+	"New arrow function": {
+		"prefix": "af",
+		"body": [
+			"const ${1:functionName} = () => {",
+			"\t${3:}",
+			"};"
+		],
+		"description": "Creates a new arrow function"
+	},
+	"Fetch Post Request": {
+		"prefix": "fetchpost",
+		"body": [
+			"fetch('${1:url}', {",
+			"\tmethod: 'POST',",
+			"\t",
+			"\t",
+			"})",
+			"\t.then(response => response.json())",
+			"\t.then(data => {",
+			"\t\tconsole.log(data);",
+			"\t})",
+			"\t.catch(error => console.error(error));"
+		],
+		"description": "Creates a Fetch Post request"
+	},
+	"React Router App Component": {
+		"prefix": "myapp",
+		"body": [
+			"import About from './components/About';",
+			"import Home from './components/Home';",
+			"import Navbar from './components/Navbar';",
+			"import { BrowserRouter, Routes, Route } from 'react-router-dom';",
+			"",
+			"const App = () => {",
+			"\treturn (",
+			"\t\t<BrowserRouter>",
+			"\t\t\t<Navbar />",
+			"\t\t\t<Routes>",
+			"\t\t\t\t<Route path='/' element={<Home />} />",
+			"\t\t\t\t<Route path='/about' element={<About />} />",
+			"\t\t\t</Routes>",
+			"\t\t</BrowserRouter>",
+			"\t);",
+			"};",
+			"",
+			"export default App;"
+		],
+		"description": "Creates a React Router App Component"
+	},
+	"React Navbar Component": {
+		"prefix": "mynavbar",
+		"body": [
+			"import React, { useContext, useEffect, useState } from 'react';",
+			"import { Navbar, Nav } from 'react-bootstrap';",
+			"import { NavLink, json } from 'react-router-dom';",
+			"",
+			"import '../App.css';",
+			"",
+			"function NavbarComponent() {",
+			"  return (",
+			"    <>",
+			"      <nav className='Navbar'>",
+			"        <Navbar bg=\"white\" expand=\"lg\" fixed=\"top\">",
+			"          <Nav className=\"m-auto\">",
+			"            <NavLink className='nav-link'>",
+			"             ${1:Website name}",
+			"            </NavLink>",
+			"          </Nav>",
+			"          <Navbar.Toggle aria-controls=\"basic-navbar-nav\" className=\"custom-toggler\" />",
+			"          <Navbar.Collapse id=\"basic-navbar-nav \">",
+			"            <Nav className=\"mr-auto\">",
+			"              <Nav.Item className=\"m-auto\">",
+			"                <NavLink to=\"/\" className=\"nav-link\">",
+			"                  Home",
+			"                </NavLink>",
+			"              </Nav.Item>",
+			"              <Nav.Item className=\"m-auto\">",
+			"                <NavLink to=\"/about\" className=\"nav-link\">",
+			"                  About",
+			"                </NavLink>",
+			"              </Nav.Item>",
+			"            </Nav>",
+			"          </Navbar.Collapse>",
+			"        </Navbar>",
+			"      </nav>",
+			"      <div style={{ paddingTop: \"60px\" }}>",
+			"        {/* Add padding equal to the navbar height */}",
+			"        {/* Content of the home component goes here */}",
+			"      </div>",
+			"    </>",
+			"  );",
+			"}",
+			"",
+			"export default NavbarComponent;"
+		],
+		"description": "React navbar component with React Router and Bootstrap"
+	},
+	"Postrequest": {
+		"prefix": "postrequest",
+		"body": [
+			"${1:app}.post('/', (req, res) => {",
+			"\t",
+			"\tconst {} = req.body;",
+			"\t",
+			"\tres.send('Hello World!');",
+			"});"
+		],
+		"description": "Creates a basic Express Post request"
+	},
+	"useState": {
+		"prefix": "usestate",
+		"body": [
+			"const [${1:state}, set${1/(.)(.*)/${1:/toLowerCase}${2:/capitalize}/}] = useState(${3:});",
+			"$4"
+		],
+		"description": "useState hook"
+	},
+	"useEffect": {
+		"prefix": "useeffect",
+		"body": [
+			"useEffect(() => {",
+			"\t$1",
+			"}, []);$2"
+		],
+		"description": "useEffect hook with empty dependency array"
+	}
+}
