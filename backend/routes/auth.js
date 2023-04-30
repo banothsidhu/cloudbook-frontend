@@ -39,7 +39,7 @@ router.post(
                 });
                 try {
                     const authToken = jwt.sign({ id: user._id }, JWT_TOKEN);
-                    res.json(authToken)
+                    res.json(user)
 
 
                 } catch (err) {
@@ -101,8 +101,10 @@ router.post('/getuser',fetchuser, async (req, res) => {
         } catch (e) {
             res.json("No User found")
         }
-    } catch (e) {
-        console.log(e)
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+
     }
 })
 
