@@ -8,7 +8,7 @@ function NavbarComponent() {
   return (
     <>
       <nav className='Navbar'>
-        <Navbar bg="white" expand="lg" fixed="top">
+        <Navbar bg="grey" expand="lg" fixed="top" style={{ backgroundColor: '#f8f9fa' }}>
           <Nav className="m-auto">
             <NavLink className='nav-link'>
              Inotebook

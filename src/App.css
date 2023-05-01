@@ -40,3 +40,6 @@
   font-family: "Rubik", sans-serif !important;
   font-weight: 500 !important;
 }
+i{
+  cursor: pointer;
+}
