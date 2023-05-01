@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./NoteitemCss.css";
 import showToast from './Toastify';
+import noteContext from '../context/Notes/NoteContext';
 
 const NoteItem = (props) => {
+  const context = useContext(noteContext)
   const { note } = props;
+  const {deleteNote} = context;
 
   const handleShowToast = (type, message) => () => {
     showToast(type, message);
@@ -16,8 +19,8 @@ const NoteItem = (props) => {
           <div className="card-body">
             <div className="d-flex align-items-center">
               <h5 className="card-title">{note.title}</h5>
-              <i className="fa-solid fa-trash mx-2" ></i>
-              <i className="fa-solid fa-edit mx-2" ></i>
+              <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteNote(note._id)}} ></i>
+              <i className="fa-solid fa-edit mx-2"  ></i>
             </div>
             <p className="card-text">The Description of this note is {note.description}</p>
           </div>

@@ -1,9 +1,24 @@
 .card {
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    margin: 0.5rem;
-  }
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0.5rem;
+  transition: 0.2s;
+  z-index: 1;
+
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  transition: 0.3s;
+  z-index: 2;
+
+}
+
+@media screen and (max-width: 768px) {
   .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: none;
   }
-  
+}
+
