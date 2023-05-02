@@ -1,16 +1,13 @@
 import React, { useContext } from 'react';
 import "./NoteitemCss.css";
-import showToast from './Toastify';
 import noteContext from '../context/Notes/NoteContext';
 
 const NoteItem = (props) => {
   const context = useContext(noteContext)
-  const { note } = props;
+  const { note ,updateNote} = props;
   const { deleteNote } = context;
 
-  const handleShowToast = (type, message) => () => {
-    showToast(type, message);
-  };
+
 
   return (
     <>
@@ -21,7 +18,7 @@ const NoteItem = (props) => {
               
             </span> */}
             {note.tag !== '' ? 
-              <span className='Center  font-weight-bold my-3' style={{ display: 'inline-block', width: '40%', textAlign: 'center', borderRadius: "5px", backgroundColor: "#E1FFF0", padding: '0.2rem',color:"green" ,fontSize:"20px" }}>
+              <span className='Center  font-weight-bold my-3' style={{ display: 'inline-block', width: '40%', textAlign: 'center', borderRadius: "5px", backgroundColor: "green", padding: '0.2rem',color:"white" ,fontSize:"20px" }}>
                 {note.tag}
               </span> :
               null
@@ -32,7 +29,7 @@ const NoteItem = (props) => {
               <h5 className="card-title"><strong>{note.title}</strong></h5>
               <div className='ml-auto'>
                 <i className="fa-solid fa-trash mx-2" onClick={() => { deleteNote(note._id) }} ></i>
-                <i className="fa-solid fa-edit mx-2"></i>
+                <i className="fa-solid fa-edit mx-2"onClick={()=>{updateNote(note)}}></i>
               </div>
             </div>
             <p className="card-text">{note.description}</p>

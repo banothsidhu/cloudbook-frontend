@@ -1,0 +1,108 @@
+/* Styles for Login form */
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  
+  .form-signin .form-floating {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .form-signin input[type="email"],
+  .form-signin input[type="password"] {
+    height: auto;
+    font-size: 16px;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  .checkbox.mb-3 label,
+  .form-signin button {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .checkbox.mb-3 label {
+    font-weight: normal;
+  }
+  
+  .form-signin button {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .form-signin .mb-5 {
+    margin-bottom: 3rem!important;
+  }
+  
+  .form-signin img {
+    margin-bottom: 15px;
+  }
+  
+  /* Custom styles for this template */
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-signin input[type="email"]:focus:not(:disabled),
+  .form-signin input[type="password"]:focus:not(:disabled) {
+    border-color: #4d84f7;
+    box-shadow: 0 0 0 0.25rem rgba(33, 150, 243, 0.25);
+  }
+  
+  
+  
+  .form-signin input[type="email"]:not(:focus):not(:placeholder-shown)~label,
+  .form-signin input[type="password"]:not(:focus):not(:placeholder-shown)~label {
+    top: calc(var(--bs-input-padding-y) + var(--bs-border-width));
+    left: 13px;
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .form-signin input[type="checkbox"] {
+    margin-left: 0px;
+  }
+  
+  /* Fallback for Edge */
+  @supports (-ms-ime-align: auto) {
+    .form-signin {
+      max-width: none;
+    }
+  }
+  
+  #formOfLogin{
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+  
+  }

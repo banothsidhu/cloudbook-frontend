@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import {  Routes, Route } from 'react-router-dom';
 import NoteState from './context/Notes/NoteState';
 import { ToastContainer } from 'react-toastify';
+import Login from './components/Login';
 const App = () => {
   return (
     <NoteState>
@@ -12,6 +13,8 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+
         <Route path='/about' element={<About />} />
       </Routes>
 

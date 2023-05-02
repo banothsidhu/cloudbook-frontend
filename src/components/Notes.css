@@ -1,20 +1,23 @@
 .note-item-enter {
-    opacity: 0;
-  }
-  
-  .note-item-enter-active {
-    opacity: 1;
-    transition: opacity 400ms ease-in-out;
-    border-radius: 1px;
+  opacity: 0;
+}
 
-  }
-  
-  .note-item-exit {
-    opacity: 1;
-  }
-  
-  .note-item-exit-active {
-    opacity: 0;
-    transition: opacity 300ms ease-in-out;
-  }
-  
+.navbar-nav .nav-link.active {
+  color: green;
+  background-color: white;
+  border-radius: 10px;
+  transition: color 1s, background-color 1s;
+}
+
+.navbar-nav .nav-link {
+  color: rgb(255, 255, 255);
+}
+
+.note-item-exit {
+  opacity: 1;
+}
+
+.note-item-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
