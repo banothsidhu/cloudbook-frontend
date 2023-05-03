@@ -5,7 +5,17 @@ import {  Routes, Route } from 'react-router-dom';
 import NoteState from './context/Notes/NoteState';
 import { ToastContainer } from 'react-toastify';
 import Login from './components/Login';
+import Signup from './components/Signup';
 const App = () => {
+  // const [authToken, setAuthToken] = useState('');
+
+  // useEffect(() => {
+  //   const authTokenCookie = Cookies.get('auth_token');
+  //   if (authTokenCookie) {
+  //     setAuthToken(authTokenCookie);
+  //   }
+  // }, []);
+
   return (
     <NoteState>
       <Navbar />
@@ -14,6 +24,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
 
         <Route path='/about' element={<About />} />
       </Routes>

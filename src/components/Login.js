@@ -1,17 +1,49 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
+import showToast from '../components/Toastify';
+import noteContext from "../context/Notes/NoteContext";
 
 export default function Login() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [redirect, setRedirect] = useState(false)
+  const context = useContext(noteContext);
+  const { getNotes } = context;
+
+
+
+  const [password, setPassword] = useState('');
+  const [redirect, setRedirect] = useState(false);
+  const [email, setEmail] = useState('');
 
   async function login(ev) {
     ev.preventDefault();
 
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password })
+      })
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        localStorage.setItem('token', data);
+        showToast('success', "Logged in successfully");
+        
+
+
+        setRedirect(true);
+      } else {
+        showToast('error', "Invalid credentials");
+      }
+    } catch (error) {
+      showToast('error', "An error occurred while logging in.");
+      console.error(error);
+    }
   }
 
   if (redirect) {
@@ -23,9 +55,10 @@ export default function Login() {
       <main className="form-signin">
         <form className='login' onSubmit={login}>
           <h1 className="h3 mb-3 fw-normal"><strong>Login </strong>Inotebook</h1>
+
           <div className="form-floating">
-            <input type="Text" className="form-control" id="floatingInput" placeholder='UserName' value={username} onChange={ev => setUsername(ev.target.value)} autoFocus/>
-            <label htmlFor="floatingInput">UserName</label>
+            <input type="email" className="form-control" id="floatingInput" placeholder='Email' value={email} onChange={ev => setEmail(ev.target.value)} />
+            <label htmlFor="floatingInput">Email</label>
           </div>
           <div className="form-floating">
             <input type="password" className="form-control" id="floatingPassword" placeholder="Password" value={password} onChange={ev => setPassword(ev.target.value)} />

@@ -1,28 +1,38 @@
 import React, { useState } from 'react'
 import NoteContext from './NoteContext'
 import showToast from '../../components/Toastify';
+import { Navigate } from 'react-router-dom';
 
 const NoteState = (props) => {
+    const [redirect, setRedirect] = useState(false);
     const host = "http://localhost:5000"
     const notesInitial = {}
     const [notes, setNotes] = useState(notesInitial)
 
     // Get Note --------------------
 
+
     const getNotes = async () => {
+        const token = localStorage.getItem('token');
+
         try {
             const response = await fetch(`${host}/api/notes/fetchallnotes`, {
                 method: 'GET',
                 headers: {
                     "content-type": "application/json",
-                    "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGRlNTdkYzc2M2UyNmIxM2Y2Y2UyMCIsImlhdCI6MTY4MjgyOTgyNH0.X6VlWujNH-FIDIDS2-hBVy0aUkvSNHXMrML0woIvg54"
+                    "auth-token": token
                 }
             })
             if (response.ok) {
                 const data = await response.json()
                 setNotes(data);
                 console.log(data)
-            } else {
+
+            } else if (response.status === 401) {
+                showToast("error", "Unauthor")
+
+            }
+            else {
                 showToast("error", "Error getting note")
             }
         } catch (error) {
@@ -34,12 +44,14 @@ const NoteState = (props) => {
     // Add Note---------------
 
     const addNote = async (title, description, tag) => {
+        const token = localStorage.getItem('token');
+
         try {
             const response = await fetch(`${host}/api/notes/addnote`, {
                 method: 'POST',
                 headers: {
                     "content-type": "application/json",
-                    "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGRlNTdkYzc2M2UyNmIxM2Y2Y2UyMCIsImlhdCI6MTY4MjgyOTgyNH0.X6VlWujNH-FIDIDS2-hBVy0aUkvSNHXMrML0woIvg54"
+                    "auth-token": token
                 },
                 body: JSON.stringify({ title, description, tag })
             });
@@ -61,12 +73,14 @@ const NoteState = (props) => {
     // Edit Note------------------------------
 
     const editNote = async (id, title, description, tag) => {
+        const token = localStorage.getItem('token');
+
         try {
             const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
                 method: 'PUT',
                 headers: {
                     "content-type": "application/json",
-                    "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGRlNTdkYzc2M2UyNmIxM2Y2Y2UyMCIsImlhdCI6MTY4MjgyOTgyNH0.X6VlWujNH-FIDIDS2-hBVy0aUkvSNHXMrML0woIvg54"
+                    "auth-token": token
                 },
                 body: JSON.stringify({ title, description, tag })
             });
@@ -96,12 +110,14 @@ const NoteState = (props) => {
     // Delete Note---------------------------
 
     const deleteNote = async (id) => {
+        const token = localStorage.getItem('token');
+
         try {
             const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
-                    "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGRlNTdkYzc2M2UyNmIxM2Y2Y2UyMCIsImlhdCI6MTY4MjgyOTgyNH0.X6VlWujNH-FIDIDS2-hBVy0aUkvSNHXMrML0woIvg54"
+                    "auth-token": token
 
                 }
             });
@@ -111,8 +127,10 @@ const NoteState = (props) => {
                 showToast("success", "Deleted");
                 setNotes(newNotes);
             } else if (response.status === 401) {
-
+                 
                 showToast("error", "Unauthorized");
+                // Todo Reditect
+
             }
             else if (response.status === 404) {
 
