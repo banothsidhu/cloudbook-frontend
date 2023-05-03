@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 import NoteContext from './NoteContext'
 import showToast from '../../components/Toastify';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+
+// inside the component
 
 const NoteState = (props) => {
+    const navigate = useNavigate();
+
+
     const [redirect, setRedirect] = useState(false);
     const host = "http://localhost:5000"
     const notesInitial = {}
@@ -29,7 +35,7 @@ const NoteState = (props) => {
                 console.log(data)
 
             } else if (response.status === 401) {
-                showToast("error", "Unauthor")
+                showToast("error", "Please Login"); navigate('/login')
 
             }
             else {
@@ -60,7 +66,10 @@ const NoteState = (props) => {
                 const data = await response.json();
                 showToast("success", "Added Notes");
                 setNotes(notes.concat(data));
-            } else {
+            } else if (response.status === 401) {
+                showToast("error", "Please Login"); navigate('/login')
+            }
+            else {
                 showToast("error", "Error adding note")
             }
         } catch (error) {
@@ -99,14 +108,16 @@ const NoteState = (props) => {
                     }
                     return note;
                 }));
-            } else {
+            } else if (response.status === 401) {
+                showToast("error", "Please Login"); navigate('/login')
+            }
+            else {
                 showToast("error", "Error updating note")
             }
         } catch (error) {
             showToast("error", "Error updating note");
         }
     };
-
     // Delete Note---------------------------
 
     const deleteNote = async (id) => {
@@ -118,7 +129,6 @@ const NoteState = (props) => {
                 headers: {
                     "Content-Type": "application/json",
                     "auth-token": token
-
                 }
             });
 
@@ -127,17 +137,10 @@ const NoteState = (props) => {
                 showToast("success", "Deleted");
                 setNotes(newNotes);
             } else if (response.status === 401) {
-                 
-                showToast("error", "Unauthorized");
-                // Todo Reditect
-
-            }
-            else if (response.status === 404) {
-
+                showToast("error", "Please Login"); navigate('/login') // Redirect to login page
+            } else if (response.status === 404) {
                 showToast("error", "Note Already deleted")
-            }
-            else {
-                // Handle other errors
+            } else {
                 showToast("error", "Error deleting note");
             }
         } catch (err) {
