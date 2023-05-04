@@ -45,7 +45,7 @@ export default function Login() {
         <div className="text-center" id="formOfLogin">
             <main className="form-signin">
                 <form className='login' onSubmit={login}>
-                    <h1 className="h3 mb-3 fw-normal"><strong>Signup</strong>MyCloudBook</h1>
+                    <h1 className="h3 mb-3 fw-normal"><strong>Signup</strong> MyCloudBook</h1>
                     <div className="form-floating">
                         <input type="text" className="form-control" id="floatingName" placeholder='Name' value={name} onChange={ev => setName(ev.target.value)} />
                         <label htmlFor="floatingName">Name</label>

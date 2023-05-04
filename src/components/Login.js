@@ -65,7 +65,7 @@ export default function Login() {
             <label htmlFor="floatingPassword">Password</label>
           </div>
           <div>
-            <Link to="/register">Register?</Link>
+            <Link to="/signup">Register?</Link>
           </div>
 
           <button className="w-100 btn btn-lg btn-success" type="submit">Login</button>
