@@ -16,7 +16,7 @@ function NavbarComponent() {
         <Navbar bg="success" expand="lg" fixed="top" >
           <Nav className="m-auto">
             <NavLink className='titleName' style={{ color: '#f8f9fa' }}>
-              Inotebook
+              MyCloudBook
             </NavLink>
           </Nav>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler" />

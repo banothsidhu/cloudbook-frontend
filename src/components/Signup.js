@@ -15,7 +15,7 @@ export default function Login() {
         ev.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/createuser', {
+            const response = await fetch('https://cloudbook-backend-p40pa049s-banothsidhu.vercel.app/api/auth/createuser', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function Login() {
         <div className="text-center" id="formOfLogin">
             <main className="form-signin">
                 <form className='login' onSubmit={login}>
-                    <h1 className="h3 mb-3 fw-normal"><strong>Signup</strong>Inotebook</h1>
+                    <h1 className="h3 mb-3 fw-normal"><strong>Signup</strong>MyCloudBook</h1>
                     <div className="form-floating">
                         <input type="text" className="form-control" id="floatingName" placeholder='Name' value={name} onChange={ev => setName(ev.target.value)} />
                         <label htmlFor="floatingName">Name</label>
