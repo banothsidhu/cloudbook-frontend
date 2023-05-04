@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
 function NavbarComponent() {
-  const navigate = useNavigate() 
+  const navigate = useNavigate()
   const handleLogOut = () => {
     localStorage.removeItem('token')
     navigate('/login')
@@ -22,22 +22,24 @@ function NavbarComponent() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler" />
           <Navbar.Collapse id="basic-navbar-nav ">
             <Nav className="ms-auto">
-              <Nav.Item className="m-auto">
-                <NavLink to="/" className="nav-link">
-                  Home
-                </NavLink>
-              </Nav.Item>
-              {!localStorage.getItem('token') ? <><Nav.Item className="m-auto">
-                <NavLink to="/login" className="nav-link">
-                  Login
-                </NavLink>
-              </Nav.Item>
+
+              {!localStorage.getItem('token') ? <>
+                <Nav.Item className="m-auto">
+                  <NavLink to="/" className="nav-link">
+                    Home
+                  </NavLink>
+                </Nav.Item>
+                <Nav.Item className="m-auto">
+                  <NavLink to="/login" className="nav-link">
+                    Login
+                  </NavLink>
+                </Nav.Item>
                 <Nav.Item className="m-auto">
                   <NavLink to="/signup" className="nav-link">
                     SignUp
                   </NavLink>
                 </Nav.Item>
-              </> : 
+              </> :
                 <button onClick={handleLogOut} className="btn btn-danger mx-3 titleName">
                   Logout
                 </button>
