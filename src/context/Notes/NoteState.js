@@ -11,7 +11,7 @@ const NoteState = (props) => {
 
 
     const [redirect, setRedirect] = useState(false);
-    const host = "https://cloudbook-backend-p40pa049s-banothsidhu.vercel.app"
+    const host = "https://cloudbook-backend-new.vercel.app"
     const notesInitial = {}
     const [notes, setNotes] = useState(notesInitial)
 

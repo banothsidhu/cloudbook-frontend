@@ -15,7 +15,7 @@ export default function Login() {
         ev.preventDefault();
 
         try {
-            const response = await fetch('https://cloudbook-backend-p40pa049s-banothsidhu.vercel.app/api/auth/createuser', {
+            const response = await fetch('https://cloudbook-backend-new.vercel.app/api/auth/createuser', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
