@@ -20,7 +20,7 @@ const NoteState = (props) => {
 
     const getNotes = async () => {
         const token = localStorage.getItem('token');
-showToast("success","Please Wait. Fetching Your Notes")
+showToast("info","Please Wait. Fetching Your Notes")
         try {
             const response = await fetch(`${host}/api/notes/fetchallnotes`, {
                 method: 'GET',
