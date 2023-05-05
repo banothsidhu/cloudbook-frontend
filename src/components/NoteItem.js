@@ -11,7 +11,7 @@ const NoteItem = (props) => {
 
   return (
     <>
-      <div className='col-sm-8 col-md-6 col-lg-4 mx-auto my-2'>
+      <div className='col-sm-12 col-md-8 col-lg-6 mx-auto my-2'>
         <div className="card" style={{ width: 'auto', minWidth: '20rem', padding: '0.3rem', boxShadow: '0 2px 8px rgba(0,0,0,0.3)', borderRadius: '5px', backgroundColor: 'white' }}>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,flexDirection:"column" }}>
           {/* <span className='Center  font-weight-bold' style={{ display: 'inline-block', width: '50%', textAlign: 'center', borderRadius: "5px", backgroundColor: "#777777", padding: '0.2rem',color:"green" ,fontSize:"20px" }}>
