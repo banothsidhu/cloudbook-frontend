@@ -20,7 +20,7 @@ const NoteState = (props) => {
 
     const getNotes = async () => {
         const token = localStorage.getItem('token');
-
+showToast("success","Please Wait. Fetching Your Notes")
         try {
             const response = await fetch(`${host}/api/notes/fetchallnotes`, {
                 method: 'GET',
@@ -32,6 +32,7 @@ const NoteState = (props) => {
             if (response.ok) {
                 const data = await response.json()
                 setNotes(data);
+                showToast("success","Fetched Notes!")
                 console.log(data)
 
             } else if (response.status === 401) {
