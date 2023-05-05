@@ -32,6 +32,7 @@ showToast("info","Please Wait. Fetching Your Notes")
             if (response.ok) {
                 const data = await response.json()
                 setNotes(data);
+                hideToast();
                 showToast("success","Fetched Notes!")
                 console.log(data)
 
