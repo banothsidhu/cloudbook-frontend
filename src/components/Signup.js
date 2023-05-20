@@ -63,7 +63,7 @@ export default function Login() {
                     </div>
 
                     <button className="w-100 btn btn-lg btn-success" type="submit">SignUp</button>
-                    <p className="mt-5 mb-3 text-muted"><strong>Made By B.Sidharth</strong></p>
+                    <p className="mt-5 mb-3 text-muted"><strong>Made By B.Sidharth on May 5th 2023</strong></p>
                 </form>
             </main>
         </div>
