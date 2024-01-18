@@ -70,7 +70,7 @@ export default function Login() {
 
           <button className="w-100 btn btn-lg btn-success" type="submit">Login</button>
           <p className="mt-5 mb-3 text-muted"><strong>Made By B.Sidharth on May 5th 2023</strong></p>
-    <p className="mt-5 mb-3 text-muted"><strong>Jai Shree Ram 🚩</strong></p>
+    <h1 className="h3 mb-3 fw-normal"><strong>Jai Shree Ram 🚩</strong></h1>
         </form>
       </main>
     </div>
