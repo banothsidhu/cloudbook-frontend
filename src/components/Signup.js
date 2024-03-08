@@ -27,7 +27,31 @@ export default function Login() {
                 const data = await response.json();
                 document.cookie = `auth_token=${data.token}; path=/`;
                 showToast('success', "SignUp successfully. Please login Now");
-                setRedirect(true);
+                try {
+      const response = await fetch('https://cloudbook-backend-new.vercel.app/api/auth/login', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password })
+      })
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        localStorage.setItem('token', data);
+        showToast('success', "Logged in successfully");
+        
+
+
+        setRedirect(true);
+      } else {
+        showToast('error', "Invalid credentials");
+      }
+    } catch (error) {
+      showToast('error', "An error occurred while logging in.");
+      console.error(error);
+    }
             } else {
                 showToast('error', "Invalid credentials");
             }
