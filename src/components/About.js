@@ -53,7 +53,7 @@ export default function About() {
             <footer style={footerStyle}>
                 <p>&copy; 2024 Sidharth</p>
             </footer>
-        </div>
+        </div>)
   
 }
 
