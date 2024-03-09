@@ -28,6 +28,11 @@ function NavbarComponent() {
                 <NavLink to="/" className="nav-link">
                   Home
                 </NavLink>
+                </Nav.Item><Nav.Item className="m-auto">
+                <NavLink to="/about" className="nav-link">
+                  About Me
+                </NavLink>
+              </Nav.Item>
               </Nav.Item><Nav.Item className="m-auto">
                 <NavLink to="/login" className="nav-link">
                   Login
