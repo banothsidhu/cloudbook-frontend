@@ -26,7 +26,7 @@ export default function Login() {
             if (response.ok) {
                 const data = await response.json();
                 document.cookie = `auth_token=${data.token}; path=/`;
-                showToast('success', "SignUp successfully. Please login Now");
+                showToast('success', "SignUp successfully as ",body.name);
                 try {
       const response = await fetch('https://cloudbook-backend-new.vercel.app/api/auth/login', {
         method: "POST",
