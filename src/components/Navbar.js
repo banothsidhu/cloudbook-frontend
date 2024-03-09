@@ -34,7 +34,7 @@ function NavbarComponent() {
                   About Me
                 </NavLink>
               </Nav.Item>
-              </Nav.Item><Nav.Item className="m-auto">
+              <Nav.Item className="m-auto">
                 <NavLink to="/login" className="nav-link">
                   Login
                 </NavLink>
