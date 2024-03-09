@@ -5,8 +5,8 @@ import React, { useState } from 'react'
 
 export default function About() {
   return (
-    <div style="color:red">
-      This is About page
+    <div>
+      Nothing yet here.
     </div>
   )
 }
