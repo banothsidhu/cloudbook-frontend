@@ -56,6 +56,15 @@ i {
     
 
   }
+  .navbar-nav .nav-link.active {
+  color: green;
+  background-color: white;
+  border-radius:10px;
+  transition: color 0.5s, background-color 1s;
+    margin:5px;
+    padding:5px;
+}
+
 }
 .navbar-nav .nav-link.active {
   color: green;
