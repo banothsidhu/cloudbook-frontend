@@ -55,7 +55,9 @@ i {
     padding: 10px;
     
 
-  }
+  } #logoutbtn{
+    margin : 5px;
+    padding:5px}
   .navbar-nav .nav-link.active {
   color: green;
   background-color: white;
