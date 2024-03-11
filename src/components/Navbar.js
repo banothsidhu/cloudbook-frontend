@@ -41,7 +41,7 @@ function NavbarComponent() {
                   </NavLink>
                 </Nav.Item>
               </> : 
-                <button onClick={handleLogOut} className="btn btn-danger mx-3 titleName">
+                <button id ="logoutbtn"onClick={handleLogOut} className="btn btn-danger mx-3 titleName">
                   Logout
                 </button>
               }
