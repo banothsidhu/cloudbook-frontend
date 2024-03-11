@@ -40,7 +40,12 @@ function NavbarComponent() {
                     SignUp
                   </NavLink>
                 </Nav.Item>
-              </> : 
+              </> :
+                <Nav.Item className="m-auto">
+                <NavLink to="/about" className="nav-link">
+                  About Me
+                </NavLink>
+              </Nav.Item>
                 <button id ="logoutbtn"onClick={handleLogOut} className="btn btn-danger mx-3 titleName">
                   Logout
                 </button>
