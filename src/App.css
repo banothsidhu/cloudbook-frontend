@@ -58,7 +58,7 @@ i {
   } #logoutbtn{
     margin : 5px;
     padding:5px;
-  width:50px;}
+  width:50%;}
   .navbar-nav .nav-link.active {
   color: green;
   background-color: white;
