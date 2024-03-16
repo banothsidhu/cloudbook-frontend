@@ -42,6 +42,11 @@ function NavbarComponent() {
                 </Nav.Item>
               </> : <>
                 <Nav.Item className="m-auto">
+                <NavLink to="/" className="nav-link">
+                  Home
+                </NavLink>
+              </Nav.Item>
+                <Nav.Item className="m-auto">
                 <NavLink to="/about" className="nav-link">
                   About Me
                 </NavLink>
