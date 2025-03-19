@@ -1,64 +1,73 @@
-import React, { useState } from 'react'
-// import { useContext } from 'react'
-// import noteContext from '../context/Notes/NoteContext'
-// import { useState } from 'react';
+import React from 'react';
 
 export default function About() {
   
-        const headerStyle = {
-        backgroundColor: '#2E8B57',
-        color: '#fff',
-        padding: '20px',
-        textAlign: 'center'
-    };
-
-    const mainStyle = {
-        padding: '20px'
-    };
-
-    const aboutSectionStyle = {
-        maxWidth: '600px',
-        margin: '0 auto',
-        backgroundColor: '#D3D3D3',
-        padding: '20px',
-        borderRadius: '10px'
-    };
-
-    const footerStyle = {
-        backgroundColor: '#2E8B57',
-        color: '#fff',
-        padding: '10px',
-        textAlign: 'center',
-        position: 'fixed',
-        bottom: '0',
-        width: '100%'
-    };
-
-    const h2Style = {
-        color: '#2E8B57'
-    };
-
-    const pStyle = {
-        lineHeight: '1.6'
+    const styles = {
+        container: {
+            fontFamily: "'Poppins', sans-serif",
+            color: '#333',
+            backgroundColor: '#F5FFFA',
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px'
+        },
+        card: {
+            maxWidth: '800px',
+            backgroundColor: '#FFFFFF',
+            padding: '30px',
+            borderRadius: '12px',
+            boxShadow: '0 8px 16px rgba(0, 0, 0, 0.1)',
+            textAlign: 'center'
+        },
+        header: {
+            fontSize: '2rem',
+            color: '#2E8B57',
+            fontWeight: '600',
+            marginBottom: '15px'
+        },
+        text: {
+            fontSize: '1.1rem',
+            lineHeight: '1.7',
+            color: '#444',
+            marginBottom: '15px'
+        },
+        highlight: {
+            color: '#006400',
+            fontWeight: 'bold'
+        },
+        link: {
+            color: '#008000',
+            textDecoration: 'none',
+            fontWeight: 'bold'
+        },
+        footer: {
+            marginTop: '30px',
+            fontSize: '0.9rem',
+            color: '#555'
+        }
     };
 
     return (
-        <div>
-            <header style={headerStyle}>
-                <h1>About Me</h1>
-            </header>
-            <main style={mainStyle}>
-                <section className="about" style={aboutSectionStyle}>
-                    <h2 style={h2Style}>Hello, I'm <strong>Sidharth</strong>!</h2>
-                    <p style={pStyle}>I'm 17 years old and I have a passion for web development. I created <a href="https://mycloudbook.vercel.app" target="_blank" rel="noopener noreferrer">mycloudbook.vercel.app</a> using React because I find love in crafting beautiful and functional websites.</p>
-                    <p style={pStyle}>In addition to web development, I also enjoy exploring other areas of technology such as artificial intelligence, cybersecurity, and data science.</p>
-                </section>
-            </main>
-            <footer style={footerStyle}>
-                <p>&copy; 2024 Sidharth</p>
-            </footer>
+        <div style={styles.container}>
+            <div style={styles.card}>
+                <h1 style={styles.header}>About Me</h1>
+                <p style={styles.text}>
+                    Hi, I'm <span style={styles.highlight}>Sidharth</span>, a <span style={styles.highlight}>dedicated web developer</span> with a passion for building modern, scalable, and user-friendly applications. 
+                </p>
+                <p style={styles.text}>
+                    At just 17, I developed <a href="https://mycloudbook.vercel.app" target="_blank" rel="noopener noreferrer" style={styles.link}>MyCloudBook</a> using <span style={styles.highlight}>React</span>, aiming to create a seamless and efficient platform for digital note-keeping.
+                </p>
+                <p style={styles.text}>
+                    My interests extend beyond web development into areas like <span style={styles.highlight}>artificial intelligence, cybersecurity, and data science</span>, where I continually explore emerging technologies to stay ahead in the field.
+                </p>
+                <p style={styles.text}>
+                    I believe in <span style={styles.highlight}>continuous learning, problem-solving, and innovation</span>. Whether it's crafting intuitive UI/UX experiences or optimizing backend performance, I strive to deliver excellence in every project I undertake.
+                </p>
+                <p style={styles.footer}>&copy; 2024 Sidharth | Always Innovating</p>
+            </div>
         </div>
     );
-  
-}
-
+    
